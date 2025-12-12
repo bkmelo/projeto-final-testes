@@ -6,24 +6,24 @@ import { colors } from "../util/Colors";
 export class ProdutoController implements repositoryinterface{
 
     private lista : Array<MaeProdutos> =new Array <MaeProdutos>();
-    nome :number = 0
+   
 
     procurarPorNumero(nome: number): void {
         let buscaProduto = this.buscarNoArray(nome);
 
-        if(buscaProduto =! null){
+        if(buscaProduto != null){
             buscaProduto.vizualizar();
 
         }else { 
             console.log(colors.fg.red,"\nO produto: " + nome +
                 " não foi encontrado!\n", colors.reset);
     }
-
+    }
 
     listarTodos(): void {
           
-        for( let produtos of this.listaMaeprodutos){
-                        produtos.visualizar();
+        for( let produto of this.lista){
+                        produto.visualizar();
 
         };
     }
@@ -31,23 +31,39 @@ export class ProdutoController implements repositoryinterface{
     cadastrar(produto: MaeProdutos): void {
         this.lista.push(produto);
     }
+
     atualizar(produto: MaeProdutos): void {
-        throw new Error("Method not implemented.");
+        let buscaProduto= this.buscarNoArray(produto.nome);
+
+            if (buscaProduto !=null){
+                this.lista[this.lista.indexOf(buscaProduto)] = produto;
+                console.log (colors.fg.green,"\nSeu estoque foi atualizado com sucesso");
+
+            }else
+                console.log (colors.fg.red,"\nEstoque não pode ser atualizado");
+
+
     }
     apagar(produto: MaeProdutos): void {
         let buscaProduto = this.buscarNoArray(numero);
 
         if (buscaProduto != null){
-            this.lista.splice(this.lista.indexOf(buscaMaeproduto),1);
-            console.log(colors.fg.green,\nA Conta numero:)
-        }
+            this.lista.splice(this.lista.indexOf(buscaProduto),1);
+            console.log(colors.fg.green,"\nO produto: " + numero +
+                " foi exluido com sucesso!", colors.reset);
+
+        }else 
+            console.log (colors.fg.red,"\nProduto não encontrado!", colors.reset);
+}
     }
 
-    
+public buscarNoArray( numero:number): MaeProdutos | null {
 
-    
-    
+    for (let lista of this.listarTodos){
+        if ( lista.produto === produto )
 
-        }            
+            return produto;
+}
+            return null;
 
     }
