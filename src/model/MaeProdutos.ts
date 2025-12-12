@@ -1,43 +1,42 @@
-//Abaixo segue a classe a receita/ molde/modelo
-// 1. Classe/ Atributos sempre private e com _(underline)
+//Classe Mãe
 
 export abstract class MaeProdutos{
 
-private _cadastrarproduto:number;
-private _;
-private _:number;
-private _:string;
-private _:number;
+private _nome:string;
+private _preco:number;
+private _marca:string;
+private _tipo:number;
 
-// Abaixo segue o construtor a máquina que monta os objetos através de parâmetros(informações).
-//2.Construtor que instancia. (OBRIGATORIO) / Tem quer ter todos os atributos(ingredientes).
+constructor(nome:string,preco:number,marca:string,tipo:number){
 
-constructor(numero:number,agencia:number,tipo:number,titular:string,saldo:number){
-
-this._numero=numero;
-this._agencia=agencia;
-this._tipo= tipo;
-this._titular=titular;
-this._saldo=saldo;
+this._nome=nome;
+this._preco=preco;
+this._marca= marca;
+this._tipo=tipo;
 }
 
-//Abaixo seguem os métodos que são as ações que o objeto vai conseguir fazer. Get sempre retorna valor através do return já o set não pois é variável.
-//3.Métodos Gets e Sets
-
-public get numero():number{
-    return this._numero
+public get nome():string{
+    return this._nome
 }
 
-public set numero(numero: number ){
-    this._numero = numero 
+public set nome(nome:string ){
+    this._nome = nome
 }
 
-public get agencia():number{
-    return this._agencia
+public get preco():number{
+    return this._preco
 }
 
-public set agencia(agencia: number ){
-    this._agencia = agencia    
+public set preco(preco: number ){
+    this._preco = preco
+}
+
+public get marca():string{
+    return this._marca
+}
+
+public set marca(marca: string ){
+    this._marca= marca
 }
 
 public get tipo():number{
@@ -45,42 +44,8 @@ public get tipo():number{
 }
 
 public set tipo(tipo: number ){
-    this._tipo = tipo
+    this._tipo= tipo
 }
-
-public get titular():string{
-    return this._titular
-}
-
-public set titular(titular: string ){
-    this._titular= titular
-}
-public get saldo():number{
-    return this._saldo
-}
-
-public set saldo(saldo: number ){
-    this._saldo = saldo
-}
-
-// Métodos especifícos dessa classe Contas
-
-public sacar ( valor:number): boolean{
-
-    if (this._saldo < valor){
-        console.log("Saldo insuficiente!")
-        return false
-    } 
-    
-        this._saldo = this._saldo - valor;
-        return true;
-    }
-
-
-public depositar(valor: number): void {
-
-        this._saldo = this._saldo + valor;
-    }
 
 
 public visualizar(): void {
@@ -89,21 +54,16 @@ public visualizar(): void {
 
         switch (this._tipo) {
             case 1:
-                tipo = "Conta Corrente";
+                tipo = "Todos os tipos de cabelo";
                 break;
-            case 2:
-                tipo = "Conta Poupança";
-                break;
-
-                }
-
+           
+        }
         console.log("\n\n*****************************************************");
-        console.log("Dados da Conta:");
+        console.log("PRODUTO");
         console.log("*****************************************************");
-        console.log("Numero da Conta: " + this._numero);
-        console.log("Agência: " + this._agencia);
-        console.log("Tipo da Conta: " + tipo);
-        console.log("Titular: " + this._titular);
-        console.log("Saldo: " + this._saldo.toFixed(2));
+        console.log("" + this._nome+"");
+        console.log("Marca: " + this._marca)
+        console.log("Tipo de cabelo  " + tipo);
+        console.log("Preço: " + this._preco.toFixed(2));
             }
         }

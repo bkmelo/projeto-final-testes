@@ -1,22 +1,21 @@
 import  readlinesync = require("readline-sync");
 import {colors} from './src/util/colors';
-import {Conta} from './src/model/Conta'; 
-import { ContaCorrente} from "./src/model/ContaCorrente";
-import { ContaPoupanca } from "./src/model/ContaPoupanca";
-import{ContaController} from './src/controller/ContaController';
+import {MaeProdutos} from './src/model/MaeProdutos'; 
+import {FilhaProdutos} from "./src/model/FilhaProdutos";
+import{ProdutoController} from './src/ProdutoController/ProdutoController';
 
 
 export function main() {
 
 // Intância da Classe ContaController
 
-    let contas: ContaController = new ContaController();
+    let contas: ProdutoController = new ProdutoController();
 
 
 //  Variáveis Auxiliares  
-    let opcao, numero, agencia, tipo, saldo, limite, aniversario, valor, numeroDestino:number;
+    let opcao, numero, tipo:number;
     let titular: string;
-    const tiposContas = ['Conta Corrente', 'Conta Poupança'];
+    const tiposContas = ['', ''];
 
     while(true){
 
