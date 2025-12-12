@@ -10,5 +10,9 @@ import { MaeProdutos } from "../model/MaeProdutos";
         cadastrar(produto:MaeProdutos):void;
         atualizar(produto:MaeProdutos):void; 
         apagar(produto:MaeProdutos):void; 
-    
+
     }
+    
+
+
+     
